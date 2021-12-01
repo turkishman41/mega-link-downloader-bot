@@ -28,7 +28,7 @@ from database.userchats import add_chat
 async def save_photo(bot, update):
     fuser = update.from_user.id
     if check_blacklist(fuser):
-        await update.reply_text("Sorry! You are Banned!")
+        await update.reply_text("Üzgünüm! Siz Yasaqlısınız!!")
         return
     add_chat(fuser)
     if update.media_group_id is not None:
