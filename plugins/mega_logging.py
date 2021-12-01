@@ -57,4 +57,4 @@ async def log_to_megatools(client, message):
         # Using your mega.nz credentials for logging into megatools when downloading links with megatools (Helps to bypass quota limits if you use a pro/business account)
         await message.reply_text(f"<b>`mega.nz` kimlik bilgiləriniz başarıyla Qeyd edildi!✅</b>\n\nProfesyonel/Biznes mega hesabının kimlik bilgilərini sağladıysanız, dosyaları herhangi bir kota sorunu olmadan indirəbiləcəksiniz!")
     else:
-        await message.reply_text("<b>Read the readme from https://github.com/XMYSTERlOUSX/mega-link-downloader-bot/blob/main/README.md first</b>\n\nThen create a file named `mega.ini` as the instructions that was mentioned in the readme and send it to me. <b>Then as a reply to it send <code>/mega_ini</code></b>", disable_web_page_preview=True)
+        await message.reply_text("<b>Öncə https://github.com/turkishman41/mega-link-downloader-bot/blob/main/README.md ünvanından oxuyun</b>\n\nSonra `mega.ini` adlı fayl yaradın Readme-də qeyd olunan təlimatlar kimi və mənə göndərin. <b>Sonra ona cavab olaraq göndərin<code>/mega_ini</code></b>", disable_web_page_preview=True)
