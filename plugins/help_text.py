@@ -24,7 +24,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 REPLY_MARKUP = InlineKeyboardMarkup(
     [
-        [InlineKeyboardButton("🚀 Deploy Yours Now! 😍", url="https://github.com/XMYSTERlOUSX/mega-link-downloader-bot")],
+        [InlineKeyboardButton("🚀 DTO Bots! 😍", url="https://t.me/DTO_Bots")],
     ]
 )
 
@@ -32,7 +32,7 @@ REPLY_MARKUP = InlineKeyboardMarkup(
 async def help_user(bot, update):
     fuser = update.from_user.id
     if check_blacklist(fuser):
-        await update.reply_text("Sorry! You are Banned!")
+        await update.reply_text("Üzgünüm! Siz Yasaqlısınız!!")
         return
     add_chat(fuser)
     await bot.send_message(
@@ -48,7 +48,7 @@ async def help_user(bot, update):
 async def start(bot, update):
     fuser = update.from_user.id
     if check_blacklist(fuser):
-        await update.reply_text("Sorry! You are Banned!")
+        await update.reply_text("Üzgünüm! Siz Yasaqlısınız!!")
         return
     add_chat(fuser)
     await bot.send_message(
