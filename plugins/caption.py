@@ -14,7 +14,7 @@ else:
 async def newcap(_, message):
     fuser = message.from_user.id
     if check_blacklist(fuser):
-        await message.reply_text("Sorry! You are Banned!")
+        await message.reply_text("Üzgünüm! Siz Yasaqlısınız!!")
         return
     add_chat(fuser)
     nc = message.reply_to_message
