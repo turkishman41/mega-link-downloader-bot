@@ -48,7 +48,7 @@ async def mega_dl(bot, update):
     global downlaoding_in_megacmd
     fuser = update.from_user.id
     if check_blacklist(fuser):
-        await update.reply_text("Sorry! You are Banned!")
+        await update.reply_text("Üzgünüm! Siz Yasaqlısınız!")
         return
     add_chat(fuser)
     url = update.text
@@ -56,7 +56,7 @@ async def mega_dl(bot, update):
         if ("folder" or "#F" or "#N") not in url:
             usermsg = await bot.send_message(
                 chat_id=update.chat.id,
-                text=f"""<b>Processing...⏳</b>""",
+                text=f"""<b>İşlənir...⏳</b>""",
                 reply_to_message_id=update.message_id
             )
             description = ""
@@ -70,11 +70,12 @@ async def mega_dl(bot, update):
             s = None
             y = None
             tg_send_type = None
-            error_text = f"""Sorry some error occured!
+            error_text = f"""
+    Üzr istəyirik, xəta baş verdi!
 
-    Make sure your link is <b>Valid (not expired or been removed)</b>
+    Linkinizin <b>Etibarlı (Sürəsi bitməmiş və ya silinməmiş)</b> olduğuna Arxayın olun
 
-    Make sure your link is <b>not password protected or encrypted or private</b>"""
+    Linkinizin <b>parolla qorunmamasına, şifrələnməməsinə</b> Arxayın olun"""
             try:
                 linkinfo = m.get_public_url_info(url)
                 logger.info(linkinfo)
@@ -112,7 +113,7 @@ async def mega_dl(bot, update):
                     the_file_size = int(fsize)
                     await bot.edit_message_text(
                         chat_id=update.chat.id,
-                        text="<b>Files detected</b> : " + fname + "\n" + "<b>Size</b> : " + humanbytes(the_file_size) + "\n" + "\n" + Translation.DOWNLOAD_START,
+                        text="<b> Dosyalar algılandı </b> : " + fname + "\n" + "<b>Size</b> : " + humanbytes(the_file_size) + "\n" + "\n" + Translation.DOWNLOAD_START,
                         message_id=usermsg.message_id
                     )
                     megalink = url
@@ -186,7 +187,7 @@ async def mega_dl(bot, update):
                             try:
                                 await bot.edit_message_text(
                                     chat_id=update.chat.id,
-                                    text="<b>Detected Size</b> : " + humanbytes(file_size) + "\n" + "\n" + "<i>Splitting files...</i>\n\n<code>The downloaded file is bigger than 2GB! But due to telegram API limits I can't upload files which are bigger than 2GB 🥺. So I will split the files and upload them to you. 😇</code>",
+                                    text="<b>Algılanan boyut</b> : " + humanbytes(file_size) + "\n" + "\n" + "<i>Dosya bölünür...</i>\n\n<code>İndirilmiş Dosya 2GB-dan böyükdür! Lakin telegram API məhdudiyyətlərinə görə 2 GB-dan böyük Dosyaları yükləyə bilmirəm 🥺. Beləliklə, mən Dosyaları bölüb sizə yükləyəcəyəm. 😇</code>",
                                     message_id=usermsg.message_id
                                 )
                                 splitting_size = 2040108421
@@ -291,14 +292,14 @@ async def mega_dl(bot, update):
         else:
             await bot.send_message(
                 chat_id=update.chat.id,
-                text=f"""Sorry! Folder links are not supported!""",
+                text=f"""Bağışlayın! Klasör Bağlantıları dəstəklənmir!""",
                 reply_to_message_id=update.message_id
             )
             return
     else:
         await bot.send_message(
             chat_id=update.chat.id,
-            text=f"""<b>I am a mega.nz link downloader bot! 😑</b>\n\nThis not a mega.nz link. 😡""",
+            text=f"""<b> Mən mega.nz link yükləmə botuyam! 😑</b>\n\nBu, mega.nz linki deyil😡""",
             reply_to_message_id=update.message_id
         )
         return
@@ -318,7 +319,7 @@ def download_mega_docs(megalink, tmp_directory_for_each_user, cred_location, upd
                 process = subprocess.run(["megadl", megalink, "--path", tmp_directory_for_each_user, "--config", cred_location]) # If mega.nz credentials are provided your link will be downloaded from megatools using quota in your account!. Helps to avoid quota limits if you use a pro/business mega account!
             except Exception as e:
                 logger.info(e)
-                update.reply_text(f"Error : `{e}` occured!\n\n<b>.Maybe because there is some error in your `mega.ini` file! Please send your file, exatly as mentioned in the readme 👉 https://github.com/XMYSTERlOUSX/mega-link-downloader-bot/blob/main/README.md</b>\n\n<i>Downloading your file now without logging in to your account...</i>", disable_web_page_preview=True)
+                update.reply_text(f"Error : `{e}` baş verdi!\n\n<b>.Ola bilsin ki, mega.ini Dosyada hansısa xəta var! Zəhmət olmasa Dosyanızı Readme-də qeyd olunduğu kimi göndərin 👉 https://github.com/Turkishman41/mega-link-downloader-bot/blob/main/README.md</b>\n\n<i>Hesabınıza Girmədən Dosyanız indi İndirilir...</i>", disable_web_page_preview=True)
                 process = subprocess.run(["megadl", megalink, "--path", tmp_directory_for_each_user])
         else:
             process = subprocess.run(["megadl", megalink, "--path", tmp_directory_for_each_user])
