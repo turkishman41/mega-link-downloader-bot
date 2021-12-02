@@ -8,7 +8,7 @@ else:
 class Translation(object):
     START_TEXT = f"""<b>Əsənliklər, Sayğılar,</b>
     
-Çən bir <b>Mega Link İndirici</b> botuyam!
+Mən bir <b>Mega Link İndirici</b> botuyam!
 
 Sadəcə mega.nz bağlantınısını Göndərin, dosya/video şəkilndə Telegram'a Yükləyəcəm !
 
@@ -22,9 +22,9 @@ Daha çox bilgilər üçün /help düyməsini basın!
     SAVED_CUSTOM_THUMB_NAIL = "Özəl kiçik rəsim Qeyd edildi. 📁.\n\n Əgər silmək istəyirsinizsə, istədiyiniz zaman\n /deletethumbnail göndərin!"
     DEL_ETED_CUSTOM_THUMB_NAIL = "Kiçik rəsim uğurla silindi "
 
-    HELP_USER = f"""<b><u>🍁Salamlar Men Mega Link İndirici Botuyam.. 🍁</u></b>
+    HELP_USER = f"""<b><u>🍁Salamlar Mən Mega Link İndirici Botuyam.. 🍁</u></b>
  
-<u>Mən Nəcür İşləyitəm:-</u>
+<u>Mən Nəcür İşləyirəm:-</u>
 
 <b>Mənə bir mega.nz dosya bağlantısı göndersəniz yetərlidir !</b>
 
